@@ -1,0 +1,42 @@
+/*
+Colors:
+
+turquoise #68baa7
+dark purple #4e476b
+light purple #6c648b
+tan #b6a19e
+gold #fba100
+ */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  color: #ffffff;
+  margin: 0em;
+}
+
+header {
+  background-color: #4e476b;
+  padding: 2.5em 0em;
+}
+
+h1 {
+  margin: 0em;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  background: rgb(108,100,139);
+  background: linear-gradient(180deg, rgba(108,100,139,1) 0%, rgba(182,161,158,1) 100%);
+}
+
+.sidebar {
+  background-color: #6c648b;
+  padding: 6%;
+}
+
+.hidden {
+  display: none;
+}
