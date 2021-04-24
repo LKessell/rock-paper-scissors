@@ -51,8 +51,13 @@ function playGame(event) {
   showResults(game.human, game.computer);
 }
 
-function updatePrompt(message) {
-  resultsText.innerText = message;
+function updateText(element, message) {
+  element.innerText = message;
+}
+
+function updateWins() {
+  updateText(humanWinCount, game.human.wins);
+  updateText(computerWinCount, game.computer.wins);
 }
 
 function showResults(human, computer) {
