@@ -3,6 +3,7 @@ class Player {
     this.name = name;
     this.icon = icon;
     this.wins = 0;
+    this.currentChoice;
   }
 
   saveWinsToStorage() {
@@ -13,10 +14,17 @@ class Player {
     // Implement local storage in later iteration
   }
 
-  takeTurn() {
-    // Interacting with Game instance
-    // Checking for win/draw conditions?
+  takeTurn(playerInput) {
+    if (!playerInput) {
+      this.currentChoice = this.getRandomChoice();
+    } else {
+      this.currentChoice = playerInput;
+      game.checkForWin();
+    }
+  }
+
+  getRandomChoice() {
+    var randomIndex = Math.floor(Math.random() * game.choices.length);
+    return game.choices[randomIndex];
   }
 }
-
-module.exports = Player;
