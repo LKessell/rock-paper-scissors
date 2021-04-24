@@ -10,6 +10,7 @@ var humanWinCount = document.getElementById('humanWinCount');
 var computerWinCount = document.getElementById('computerWinCount');
 var humanResult = document.getElementById('humanResult');
 var compResult = document.getElementById('compResult');
+var resultsText = document.getElementById('resultsText');
 
 classicBtn.addEventListener('click', function() {
   changeView(choiceView, mainView);
@@ -48,6 +49,10 @@ function playGame(event) {
   show(changeGameBtn);
   disable(changeGameBtn);
   showResults(game.human, game.computer);
+}
+
+function updatePrompt(message) {
+  resultsText.innerText = message;
 }
 
 function showResults(human, computer) {
