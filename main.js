@@ -2,6 +2,7 @@ var game = new Game();
 
 var classicBtn = document.getElementById('classicBtn');
 var challengeBtn = document.getElementById('challengeBtn');
+var changeGameBtn = document.getElementById('changeGameBtn');
 var mainView = document.getElementById('mainView');
 var choiceView = document.getElementById('choiceView');
 var resultsView = document.getElementById('resultsView');
@@ -13,6 +14,7 @@ var compResult = document.getElementById('compResult');
 classicBtn.addEventListener('click', function() {
   changeView(choiceView, mainView);
 });
+changeGameBtn.addEventListener('click', changeGame);
 choiceView.addEventListener('click', function(event) {
   playGame(event);
 });
@@ -35,6 +37,7 @@ function playGame(event) {
   game.computer.takeTurn();
   game.human.takeTurn(humanChoice);
   changeView(resultsView, choiceView);
+  show(changeGameBtn);
   showResults(game.human, game.computer);
 }
 
@@ -42,6 +45,12 @@ function showResults(human, computer) {
   humanResult.src = `assets/${human.currentChoice}.png`;
   compResult.src = `assets/${computer.currentChoice}.png`;
   setTimeout(function() {changeView(choiceView, resultsView)}, 2000);
+}
+
+function changeGame() {
+  changeView(mainView, resultsView);
+  hide(choiceView);
+  hide(changeGameBtn);  
 }
 
 // console.log(`You chose: ${game.human.currentChoice}`);
