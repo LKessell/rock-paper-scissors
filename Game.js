@@ -15,12 +15,12 @@ class Game {
       humanChoice === 'scissors' && compChoice === 'paper';
 
     if (humanWin) {
-      console.log('You won!');
+      updatePrompt('You won!');
       this.human.wins++;
     } else if (humanChoice === compChoice) {
-      console.log('It\'s a draw!');
+      updatePrompt('It\'s a draw!');
     } else {
-      console.log('Computer wins!');
+      updatePrompt('The computer won!');
       this.computer.wins++;
     }
   }
