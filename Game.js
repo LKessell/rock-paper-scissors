@@ -1,28 +1,30 @@
 class Game {
   constructor() {
-    this.player1 = new Player('Human', '😄');
-    this.player2 = new Player('Computer', '💻')
+    this.human = new Player('Human', '😄');
+    this.computer = new Player('Computer', '💻')
     this.type = 'classic';
     this.choices = ['rock', 'paper', 'scissors'];
   }
 
   checkForWin() {
+    var humanChoice = this.human.currentChoice;
+    var compChoice = this.computer.currentChoice;
     var humanWin =
-      player1.currentChoice === 'rock' && player2.currentChoice === 'scissors' || player1.currentChoice === 'paper' && player2.currentChoice === 'rock' || player1.currentChoice === 'scissors' && player2.currentChoice === 'paper';
+      humanChoice === 'rock' && compChoice === 'scissors' ||
+      humanChoice === 'paper' && compChoice === 'rock' ||
+      humanChoice === 'scissors' && compChoice === 'paper';
 
     if (humanWin) {
       console.log('You won!');
-      player1.wins++;
-    } else if (player1.currentChoice === player2.currentChoice) {
+      this.human.wins++;
+    } else if (humanChoice === compChoice) {
       console.log('It\'s a draw!');
     } else {
       console.log('Computer wins!');
-      player2.wins++;
+      this.computer.wins++;
     }
   }
 
   resetBoard() {
   }
 }
-
-module.exports = Game;
