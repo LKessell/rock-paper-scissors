@@ -11,6 +11,9 @@ var computerWinCount = document.getElementById('computerWinCount');
 classicBtn.addEventListener('click', function() {
   changeView(choiceView, mainView);
 });
+choiceView.addEventListener('click', function(event) {
+  playGame(event);
+});
 
 function show(element) {
   element.classList.remove('hidden');
@@ -24,8 +27,13 @@ function changeView(shown, hidden) {
   show(shown);
   hide(hidden);
 }
-// game.computer.takeTurn();
-// game.human.takeTurn('rock');
-//
+
+function playGame(event) {
+  var humanChoice = event.target.id;
+  game.computer.takeTurn();
+  game.human.takeTurn(humanChoice);
+  changeView(resultsView, choiceView);
+}
+
 // console.log(`You chose: ${game.human.currentChoice}`);
 // console.log(`Computer chose: ${game.computer.currentChoice}`);
