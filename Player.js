@@ -17,16 +17,14 @@ class Player {
   takeTurn(playerInput) {
     if (this.name === 'Human') {
       this.currentChoice = playerInput;
+      game.checkForWin();
     } else {
-      this.currentChoice = getRandomChoice();
+      this.currentChoice = this.getRandomChoice();
     }
-    game.checkForWin();
   }
 
   getRandomChoice() {
     var randomIndex = Math.floor(Math.random() * game.choices.length);
-    return choices[randomIndex];
+    return game.choices[randomIndex];
   }
 }
-
-module.exports = Player;
