@@ -8,8 +8,22 @@ var resultsView = document.getElementById('resultsView');
 var humanWinCount = document.getElementById('humanWinCount');
 var computerWinCount = document.getElementById('computerWinCount');
 
+classicBtn.addEventListener('click', function() {
+  changeView(choiceView, mainView);
+});
 
+function show(element) {
+  element.classList.remove('hidden');
+}
 
+function hide(element) {
+  element.classList.add('hidden');
+}
+
+function changeView(shown, hidden) {
+  show(shown);
+  hide(hidden);
+}
 // game.computer.takeTurn();
 // game.human.takeTurn('rock');
 //
