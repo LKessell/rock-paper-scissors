@@ -32,9 +32,18 @@ main {
   background: linear-gradient(180deg, rgba(108,100,139,1) 0%, rgba(182,161,158,1) 100%);
 }
 
+button {
+  background-color: #4e476b;
+  color: #ffffff;
+  border: 1px solid #b6a19e;
+  border-radius: 5px;
+  padding: 5% 8%;
+}
+
 .sidebar {
   background-color: #6c648b;
-  padding: 6%;
+  padding-top: 6%;
+  width: 15%;
 }
 
 .weapon {
