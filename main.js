@@ -32,25 +32,37 @@ function changeView(shown, hidden) {
   hide(hidden);
 }
 
+function enable(element) {
+  element.disabled = false;
+}
+
+function disable(element) {
+  element.disabled = true;
+}
+
 function playGame(event) {
   var humanChoice = event.target.id;
   game.computer.takeTurn();
   game.human.takeTurn(humanChoice);
   changeView(resultsView, choiceView);
   show(changeGameBtn);
+  disable(changeGameBtn);
   showResults(game.human, game.computer);
 }
 
 function showResults(human, computer) {
   humanResult.src = `assets/${human.currentChoice}.png`;
   compResult.src = `assets/${computer.currentChoice}.png`;
-  setTimeout(function() {changeView(choiceView, resultsView)}, 2000);
+  setTimeout(function() {
+    changeView(choiceView, resultsView);
+    enable(changeGameBtn);
+  }, 2000);
 }
 
 function changeGame() {
   changeView(mainView, resultsView);
   hide(choiceView);
-  hide(changeGameBtn);  
+  hide(changeGameBtn);
 }
 
 // console.log(`You chose: ${game.human.currentChoice}`);
