@@ -15,14 +15,16 @@ class Game {
       humanChoice === 'scissors' && compChoice === 'paper';
 
     if (humanWin) {
-      updatePrompt('You won!');
+      updateText(resultsText, 'You won!');
       this.human.wins++;
     } else if (humanChoice === compChoice) {
-      updatePrompt('It\'s a draw!');
+      updateText(resultsText, 'It\'s a draw!');
     } else {
-      updatePrompt('The computer won!');
+      updateText(resultsText, 'The computer won!');
       this.computer.wins++;
     }
+
+    updateWins();
   }
 
   resetBoard() {
