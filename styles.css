@@ -37,6 +37,10 @@ main {
   padding: 6%;
 }
 
+.weapon {
+  height: 10em;
+}
+
 .hidden {
   display: none;
 }
