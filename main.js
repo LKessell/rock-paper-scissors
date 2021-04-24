@@ -7,6 +7,8 @@ var choiceView = document.getElementById('choiceView');
 var resultsView = document.getElementById('resultsView');
 var humanWinCount = document.getElementById('humanWinCount');
 var computerWinCount = document.getElementById('computerWinCount');
+var humanResult = document.getElementById('humanResult');
+var compResult = document.getElementById('compResult');
 
 classicBtn.addEventListener('click', function() {
   changeView(choiceView, mainView);
@@ -33,6 +35,12 @@ function playGame(event) {
   game.computer.takeTurn();
   game.human.takeTurn(humanChoice);
   changeView(resultsView, choiceView);
+  showResults(game.human, game.computer);
+}
+
+function showResults(human, computer) {
+  humanResult.src = `assets/${human.currentChoice}.png`;
+  compResult.src = `assets/${computer.currentChoice}.png`;
 }
 
 // console.log(`You chose: ${game.human.currentChoice}`);
