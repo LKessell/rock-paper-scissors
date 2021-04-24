@@ -41,6 +41,7 @@ function playGame(event) {
 function showResults(human, computer) {
   humanResult.src = `assets/${human.currentChoice}.png`;
   compResult.src = `assets/${computer.currentChoice}.png`;
+  setTimeout(function() {changeView(choiceView, resultsView)}, 2000);
 }
 
 // console.log(`You chose: ${game.human.currentChoice}`);
