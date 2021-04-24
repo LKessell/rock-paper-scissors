@@ -15,11 +15,11 @@ class Player {
   }
 
   takeTurn(playerInput) {
-    if (this.name === 'Human') {
+    if (!playerInput) {
+      this.currentChoice = this.getRandomChoice();
+    } else {
       this.currentChoice = playerInput;
       game.checkForWin();
-    } else {
-      this.currentChoice = this.getRandomChoice();
     }
   }
 
