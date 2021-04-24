@@ -16,13 +16,22 @@
         <p>Wins: <span id="humanWinCount">0</span></p>
       </section>
       <section class="game-container">
-        <section>
+        <section id="mainView">
           <h2>Choose a game:</h2>
+          <button id="classicBtn">
+            <p>CLASSIC</p>
+            <p>Rock > Scissors</p>
+            <p>Scissors > Paper</p>
+            <p>Paper > Rock</p>
+          </button>
+          <button id="challengeBtn">
+            <p>CHALLENGE</p>
+          </button>
         </section>
-        <section>
+        <section class="hidden" id="choiceView">
           <h2>Choose your fighter!</h2>
         </section>
-        <section>
+        <section class="hidden" id="resultsView">
           <h2>Game Results</h2>
         </section>
       </section>
