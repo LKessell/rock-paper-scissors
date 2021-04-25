@@ -52,7 +52,7 @@ function renderChoices() {
   for (var i = 0; i < game.choices.length; i++) {
     var weapon = game.choices[i];
     weaponChoices.innerHTML += `
-    <div>
+    <div class="weapon-container">
       <img class="weapon" src="assets/${weapon}.png" id="${weapon}">
     </div>
     `;
@@ -70,12 +70,12 @@ function playGame(event) {
   game.computer.takeTurn();
   game.human.takeTurn(humanChoice);
   showPlayerSelection(event);
-  setTimeout(function() {    
+  setTimeout(function() {
     changeView(resultsView, choiceView);
     show(changeGameBtn);
     disable(changeGameBtn);
     showResults(game.human, game.computer);
-  }, 1000)
+  }, 1000);
 }
 
 function updateText(element, message) {
