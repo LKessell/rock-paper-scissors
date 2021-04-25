@@ -25,8 +25,6 @@ class Game {
       updateText(resultsText, 'The computer won!');
       this.computer.wins++;
     }
-
-    updateWins();
   }
 
   chooseMode(event) {
