@@ -8,6 +8,10 @@ tan #b6a19e
 gold #fba100
  */
 
+ /* * {
+   border: 1px dashed blue;
+ } */
+
 body {
   font-family: 'Roboto', sans-serif;
   text-align: center;
@@ -40,6 +44,14 @@ button {
   padding: 5% 8%;
 }
 
+div {
+  display: inline-flex;
+  align-content: center;
+  z-index: 1;
+  height: 170px;
+  width: 170px;
+}
+
 .sidebar {
   background-color: #6c648b;
   padding-top: 6%;
@@ -48,6 +60,17 @@ button {
 
 .weapon {
   height: 10em;
+}
+
+.player-icon {
+  height: 40px;
+}
+
+.selector {
+  position: relative;
+  right: 90px;
+  top: 140px;
+  z-index: 2;
 }
 
 .hidden {
