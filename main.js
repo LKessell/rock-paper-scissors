@@ -77,7 +77,7 @@ function playGame(event) {
     show(changeGameBtn);
     disable(changeGameBtn);
     showResults(game.human, game.computer);
-  }, 1000);
+  }, 800);
 }
 
 function updateText(element, message) {
@@ -98,7 +98,7 @@ function showResults(human, computer) {
     changeView(choiceView, resultsView);
     enable(changeGameBtn);
     renderChoices();
-  }, 2000);
+  }, 1500);
 }
 
 function changeGame() {

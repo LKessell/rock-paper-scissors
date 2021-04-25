@@ -26,6 +26,11 @@ header {
 
 h1 {
   margin: 0em;
+  font-size: 3em;
+}
+
+h2 {
+  margin-bottom: 3em;
 }
 
 main {
@@ -41,7 +46,20 @@ button {
   color: #ffffff;
   border: 1px solid #b6a19e;
   border-radius: 5px;
-  padding: 5% 8%;
+  padding: 1em;
+  margin: 1em;
+  width: 16em;
+  cursor: pointer;
+}
+
+button:hover:not([disabled]) {
+  border-color: #fba100;
+  background-color: #5d567b;
+}
+
+
+.change-game-btn {
+  width: auto;
 }
 
 .sidebar {
@@ -50,9 +68,19 @@ button {
   width: 15%;
 }
 
+.game-container {
+  padding: 2% 14%;
+  width: 45%;
+}
+
 .weapon {
   height: 10em;
   margin-bottom: 1em;
+  cursor: pointer;
+}
+
+.weapon:hover {
+  transform: scale(1.1, 1.1);
 }
 
 .weapon-container {
@@ -61,6 +89,11 @@ button {
   z-index: 1;
   height: 170px;
   width: 170px;
+  margin: 0.6em;
+}
+
+.static {
+  pointer-events: none;
 }
 
 .player-icon {
@@ -69,12 +102,12 @@ button {
 
 .selector {
   position: relative;
-  right: 90px;
-  top: 140px;
+  right: 100px;
+  top: 135px;
   z-index: 2;
 }
 
-.results {
+.centered-column {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
