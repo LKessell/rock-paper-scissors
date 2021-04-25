@@ -1,7 +1,7 @@
 class Game {
   constructor() {
-    this.human = new Player('Human', '😄');
-    this.computer = new Player('Computer', '💻')
+    this.human = new Player('Human', 'assets/happy.png');
+    this.computer = new Player('Computer', 'assets/robot.png')
     this.type = null;
     this.choices = null;
   }

@@ -12,6 +12,7 @@
     </header>
     <main>
       <section class="sidebar">
+        <img class="player-icon" src="assets/happy.png">
         <p>Human</p>
         <p>Wins: <span id="humanWinCount">0</span></p>
         <button class="hidden" id="changeGameBtn">CHANGE GAME?</button>
@@ -40,11 +41,18 @@
         </section>
         <section class="hidden" id="resultsView">
           <h2 id="resultsText">Game Results</h2>
-          <img class="weapon" src="" id="humanResult">
-          <img class="weapon" src="" id="compResult">
+          <div class="results">
+            <img class="weapon" src="" id="humanResult">
+            <img class="player-icon" src="assets/happy.png">
+          </div>
+          <div class="results">
+            <img class="weapon" src="" id="compResult">
+            <img class="player-icon" src="assets/robot.png">
+          </div>
         </section>
       </section>
       <section class="sidebar">
+        <img class="player-icon" src="assets/robot.png">
         <p>Computer</p>
         <p>Wins: <span id="computerWinCount">0</span></p>
       </section>
