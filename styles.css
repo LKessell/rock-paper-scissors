@@ -89,6 +89,7 @@ button:hover:not([disabled]) {
   z-index: 1;
   height: 170px;
   width: 170px;
+  margin: 0.6em;
 }
 
 .static {
@@ -101,8 +102,8 @@ button:hover:not([disabled]) {
 
 .selector {
   position: relative;
-  right: 90px;
-  top: 140px;
+  right: 100px;
+  top: 135px;
   z-index: 2;
 }
 
