@@ -26,6 +26,11 @@ header {
 
 h1 {
   margin: 0em;
+  font-size: 3em;
+}
+
+h2 {
+  margin-bottom: 3em;
 }
 
 main {
@@ -42,7 +47,7 @@ button {
   border: 1px solid #b6a19e;
   border-radius: 5px;
   padding: 1em;
-  margin: 2em;
+  margin: 1em;
   width: 16em;
   cursor: pointer;
 }
@@ -101,7 +106,7 @@ button:hover:not([disabled]) {
   z-index: 2;
 }
 
-.results {
+.centered-column {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
