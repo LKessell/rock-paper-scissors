@@ -6,12 +6,18 @@ class Player {
     this.currentChoice;
   }
 
-  saveWinsToStorage() {
-    // Implement local storage in later iteration
+  saveWinsToStorage(player) {
+    localStorage.setItem(player, this.wins)
   }
 
-  retrieveWinsFromStorage() {
-    // Implement local storage in later iteration
+  retrieveWinsFromStorage(player) {
+    var storageWins = localStorage.getItem(player)
+
+    if (storageWins) {
+      this.wins = storageWins;
+    } else {
+      this.wins = 0;
+    }
   }
 
   takeTurn(playerInput) {
