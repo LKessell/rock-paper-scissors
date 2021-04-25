@@ -47,10 +47,11 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button:hover:not([disabled]) {
   border-color: #fba100;
   background-color: #5d567b;
 }
+
 
 .change-game-btn {
   width: auto;
@@ -73,12 +74,20 @@ button:hover {
   cursor: pointer;
 }
 
+.weapon:hover {
+  transform: scale(1.1, 1.1);
+}
+
 .weapon-container {
   display: inline-flex;
   align-content: center;
   z-index: 1;
   height: 170px;
   width: 170px;
+}
+
+.static {
+  pointer-events: none;
 }
 
 .player-icon {
