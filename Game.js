@@ -10,9 +10,11 @@ class Game {
     var humanChoice = this.human.currentChoice;
     var compChoice = this.computer.currentChoice;
     var humanWin =
-      humanChoice === 'rock' && compChoice === 'scissors' ||
-      humanChoice === 'paper' && compChoice === 'rock' ||
-      humanChoice === 'scissors' && compChoice === 'paper';
+      humanChoice === 'rock' && (compChoice === 'scissors' || compChoice === 'lizard') ||
+      humanChoice === 'paper' && (compChoice === 'rock' || compChoice === 'alien') ||
+      humanChoice === 'scissors' && (compChoice === 'paper' || compChoice === 'lizard') ||
+      humanChoice === 'lizard' && (compChoice === 'alien' || compChoice === 'paper') ||
+      humanChoice === 'alien' && (compChoice === 'rock' || compChoice === 'scissors');
 
     if (humanWin) {
       updateText(resultsText, 'You won!');
