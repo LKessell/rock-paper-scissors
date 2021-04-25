@@ -93,6 +93,7 @@ function showResults(human, computer) {
   setTimeout(function() {
     changeView(choiceView, resultsView);
     enable(changeGameBtn);
+    renderChoices();
   }, 2000);
 }
 
