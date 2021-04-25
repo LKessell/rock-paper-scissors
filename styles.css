@@ -41,13 +41,29 @@ button {
   color: #ffffff;
   border: 1px solid #b6a19e;
   border-radius: 5px;
-  padding: 5% 8%;
+  padding: 1em;
+  margin: 2em;
+  width: 16em;
+}
+
+button:hover {
+  border-color: #fba100;
+  background-color: #5d567b;
+}
+
+.change-game-btn {
+  width: auto;
 }
 
 .sidebar {
   background-color: #6c648b;
   padding-top: 6%;
   width: 15%;
+}
+
+.game-container {
+  padding: 2% 14%;
+  width: 45%;
 }
 
 .weapon {
