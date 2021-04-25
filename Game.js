@@ -2,7 +2,7 @@ class Game {
   constructor() {
     this.human = new Player('Human', '😄');
     this.computer = new Player('Computer', '💻')
-    // this.type = 'classic';
+    this.type = null;
     this.choices = null;
   }
 
@@ -28,9 +28,11 @@ class Game {
   }
 
   chooseMode(event) {
-    if (event.target.id === 'classicBtn') {
+    if (event.target.closest('button').id === 'classicBtn') {
+      this.type = 'classic';
       this.choices = ['rock', 'paper', 'scissors'];
     } else {
+      this.type = 'challenge';
       this.choices = ['rock', 'paper', 'scissors', 'lizard', 'alien'];
     }
   }
