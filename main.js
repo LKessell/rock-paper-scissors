@@ -11,6 +11,7 @@ var computerWinCount = document.getElementById('computerWinCount');
 var humanResult = document.getElementById('humanResult');
 var compResult = document.getElementById('compResult');
 var resultsText = document.getElementById('resultsText');
+var weaponChoices = document.getElementById('weaponChoices');
 
 // classicBtn.addEventListener('click', function() {
 //   changeView(choiceView, mainView);
@@ -18,6 +19,7 @@ var resultsText = document.getElementById('resultsText');
 mainView.addEventListener('click', function(event) {
   game.chooseMode(event);
   changeView(choiceView, mainView);
+  renderChoices();
 })
 changeGameBtn.addEventListener('click', changeGame);
 choiceView.addEventListener('click', function(event) {
@@ -43,6 +45,16 @@ function enable(element) {
 
 function disable(element) {
   element.disabled = true;
+}
+
+function renderChoices() {
+  weaponChoices.innerHTML = ''
+  for (var i = 0; i < game.choices.length; i++) {
+    var weapon = game.choices[i];
+    weaponChoices.innerHTML += `
+    <img class="weapon" src="assets/${weapon}.png" id="${weapon}">
+    `;
+  }
 }
 
 function playGame(event) {
