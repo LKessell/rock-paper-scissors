@@ -12,9 +12,13 @@ var humanResult = document.getElementById('humanResult');
 var compResult = document.getElementById('compResult');
 var resultsText = document.getElementById('resultsText');
 
-classicBtn.addEventListener('click', function() {
+// classicBtn.addEventListener('click', function() {
+//   changeView(choiceView, mainView);
+// });
+mainView.addEventListener('click', function(event) {
+  game.chooseMode(event);
   changeView(choiceView, mainView);
-});
+})
 changeGameBtn.addEventListener('click', changeGame);
 choiceView.addEventListener('click', function(event) {
   playGame(event);
