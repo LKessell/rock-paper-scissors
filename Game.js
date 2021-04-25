@@ -2,17 +2,19 @@ class Game {
   constructor() {
     this.human = new Player('Human', '😄');
     this.computer = new Player('Computer', '💻')
-    this.type = 'classic';
-    this.choices = ['rock', 'paper', 'scissors'];
+    this.type = null;
+    this.choices = null;
   }
 
   checkForWin() {
     var humanChoice = this.human.currentChoice;
     var compChoice = this.computer.currentChoice;
     var humanWin =
-      humanChoice === 'rock' && compChoice === 'scissors' ||
-      humanChoice === 'paper' && compChoice === 'rock' ||
-      humanChoice === 'scissors' && compChoice === 'paper';
+      humanChoice === 'rock' && (compChoice === 'scissors' || compChoice === 'lizard') ||
+      humanChoice === 'paper' && (compChoice === 'rock' || compChoice === 'alien') ||
+      humanChoice === 'scissors' && (compChoice === 'paper' || compChoice === 'lizard') ||
+      humanChoice === 'lizard' && (compChoice === 'alien' || compChoice === 'paper') ||
+      humanChoice === 'alien' && (compChoice === 'rock' || compChoice === 'scissors');
 
     if (humanWin) {
       updateText(resultsText, 'You won!');
@@ -25,6 +27,16 @@ class Game {
     }
 
     updateWins();
+  }
+
+  chooseMode(event) {
+    if (event.target.closest('button').id === 'classicBtn') {
+      this.type = 'classic';
+      this.choices = ['rock', 'paper', 'scissors'];
+    } else {
+      this.type = 'challenge';
+      this.choices = ['rock', 'paper', 'scissors', 'lizard', 'alien'];
+    }
   }
 
   resetBoard() {
