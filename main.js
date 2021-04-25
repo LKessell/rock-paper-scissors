@@ -16,6 +16,7 @@ var weaponChoices = document.getElementById('weaponChoices');
 // classicBtn.addEventListener('click', function() {
 //   changeView(choiceView, mainView);
 // });
+window.addEventListener('DOMContentLoaded', getStorageData);
 mainView.addEventListener('click', function(event) {
   game.chooseMode(event);
   changeView(choiceView, mainView);
@@ -72,6 +73,7 @@ function playGame(event) {
   showPlayerSelection(event);
   setTimeout(function() {
     changeView(resultsView, choiceView);
+    updateWins();
     show(changeGameBtn);
     disable(changeGameBtn);
     showResults(game.human, game.computer);
@@ -85,6 +87,8 @@ function updateText(element, message) {
 function updateWins() {
   updateText(humanWinCount, game.human.wins);
   updateText(computerWinCount, game.computer.wins);
+  game.human.saveWinsToStorage('human');
+  game.computer.saveWinsToStorage('computer');
 }
 
 function showResults(human, computer) {
@@ -101,6 +105,12 @@ function changeGame() {
   changeView(mainView, resultsView);
   hide(choiceView);
   hide(changeGameBtn);
+}
+
+function getStorageData() {
+  game.human.retrieveWinsFromStorage('human');
+  game.computer.retrieveWinsFromStorage('computer');
+  updateWins();
 }
 
 // console.log(`You chose: ${game.human.currentChoice}`);
