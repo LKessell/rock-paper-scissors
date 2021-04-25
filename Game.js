@@ -2,8 +2,8 @@ class Game {
   constructor() {
     this.human = new Player('Human', '😄');
     this.computer = new Player('Computer', '💻')
-    this.type = 'classic';
-    this.choices = ['rock', 'paper', 'scissors'];
+    // this.type = 'classic';
+    this.choices = null;
   }
 
   checkForWin() {
@@ -25,6 +25,14 @@ class Game {
     }
 
     updateWins();
+  }
+
+  chooseMode(event) {
+    if (event.target.id === 'classicBtn') {
+      this.choices = ['rock', 'paper', 'scissors'];
+    } else {
+      this.choices = ['rock', 'paper', 'scissors', 'lizard', 'alien'];
+    }
   }
 
   resetBoard() {
