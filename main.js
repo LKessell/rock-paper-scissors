@@ -52,19 +52,30 @@ function renderChoices() {
   for (var i = 0; i < game.choices.length; i++) {
     var weapon = game.choices[i];
     weaponChoices.innerHTML += `
-    <img class="weapon" src="assets/${weapon}.png" id="${weapon}">
+    <div>
+      <img class="weapon" src="assets/${weapon}.png" id="${weapon}">
+    </div>
     `;
   }
+}
+
+function showPlayerSelection(event) {
+  event.target.closest('div').innerHTML += `
+  <img class="player-icon selector" src="assets/happy.png">
+  `
 }
 
 function playGame(event) {
   var humanChoice = event.target.id;
   game.computer.takeTurn();
   game.human.takeTurn(humanChoice);
-  changeView(resultsView, choiceView);
-  show(changeGameBtn);
-  disable(changeGameBtn);
-  showResults(game.human, game.computer);
+  showPlayerSelection(event);
+  setTimeout(function() {    
+    changeView(resultsView, choiceView);
+    show(changeGameBtn);
+    disable(changeGameBtn);
+    showResults(game.human, game.computer);
+  }, 1000)
 }
 
 function updateText(element, message) {
