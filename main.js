@@ -18,6 +18,8 @@ var humanIcon = document.getElementById('humanIcon');
 var humanName = document.getElementById('humanName');
 var computerIcon = document.getElementById('computerIcon');
 var computerName = document.getElementById('computerName');
+var humanResultIcon = document.getElementById('humanResultIcon');
+var compResultIcon = document.getElementById('compResultIcon');
 
 // Event Listeners
 window.addEventListener('DOMContentLoaded', setUpGame);
@@ -55,12 +57,13 @@ function disable(element) {
 
 function setUpGame() {
   getStorageData();
-  renderSidebar(humanIcon, humanName, game.human.name, game.human.icon);
-  renderSidebar(computerIcon, computerName, game.computer.name, game.computer.icon);
+  renderSidebar(humanIcon, humanName, game.human.name, game.human.icon, game.human.iconAlt);
+  renderSidebar(computerIcon, computerName, game.computer.name, game.computer.icon, game.computer.iconAlt);
 }
 
-function renderSidebar(iconId, nameId, player, icon) {
+function renderSidebar(iconId, nameId, player, icon, altText) {
   iconId.src=icon;
+  iconId.alt=altText;
   nameId.innerText = player;
 }
 
@@ -76,7 +79,7 @@ function renderChoices() {
     var weapon = game.choices[i];
     weaponChoices.innerHTML += `
     <div class="weapon-container">
-      <img class="weapon" src="assets/${weapon}.png" id="${weapon}">
+      <img class="weapon" src="assets/${weapon}.png" alt="${weapon}" id="${weapon}">
     </div>
     `;
   }
@@ -84,7 +87,7 @@ function renderChoices() {
 
 function showPlayerSelection(event) {
   event.target.closest('div').innerHTML += `
-  <img class="player-icon selector" src="assets/happy.png">
+  <img class="player-icon selector" src="${game.human.icon}" alt="${game.human.iconAlt}">
   `
 }
 
@@ -128,7 +131,13 @@ function updateWins() {
 
 function renderResults(human, computer) {
   humanResult.src = `assets/${human.currentChoice}.png`;
+  humanResult.alt = human.currentChoice;
   compResult.src = `assets/${computer.currentChoice}.png`;
+  compResult.alt = computer.currentChoice;
+  humanResultIcon.src = human.icon;
+  humanResultIcon.alt = human.iconAlt;
+  compResultIcon.src = computer.icon;
+  compResultIcon.alt = computer.iconAlt;
   setTimeout(startNewRound, 1500);
 }
 
