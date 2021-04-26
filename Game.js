@@ -4,6 +4,7 @@ class Game {
     this.computer = new Player('Computer', 'assets/robot.png')
     this.type = null;
     this.choices = null;
+    this.winner = null;
   }
 
   checkForWin() {
@@ -17,14 +18,25 @@ class Game {
       humanChoice === 'alien' && (compChoice === 'rock' || compChoice === 'scissors');
 
     if (humanWin) {
-      updateText(resultsText, 'You won!');
       this.human.wins++;
-    } else if (humanChoice === compChoice) {
-      updateText(resultsText, 'It\'s a draw!');
-    } else {
-      updateText(resultsText, 'The computer won!');
-      this.computer.wins++;
+      this.winner = 'human';
+      return true;
     }
+
+    this.checkForDraw();
+  }
+
+  checkForDraw() {
+    var humanChoice = this.human.currentChoice;
+    var compChoice = this.computer.currentChoice;
+
+    if (humanChoice === compChoice) {
+      this.winner = 'none';
+      return true;
+    }
+
+    this.computer.wins++;
+    this.winner = 'computer';
   }
 
   chooseMode(event) {
