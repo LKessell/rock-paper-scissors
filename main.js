@@ -26,7 +26,7 @@ mainView.addEventListener('click', function(event) {
   changeView(choiceView, mainView);
   renderChoices();
 })
-changeGameBtn.addEventListener('click', changeGame);
+changeGameBtn.addEventListener('click', returnToMain);
 choiceView.addEventListener('click', function(event) {
   playGame(event);
 });
@@ -102,7 +102,7 @@ function playGame(event) {
 function showGameOutcome() {
   changeView(resultsView, choiceView);
   updateWins();
-  showResults(game.human, game.computer);
+  renderResults(game.human, game.computer);
 }
 
 function updateText(element, message) {
@@ -126,7 +126,7 @@ function updateWins() {
   game.computer.saveWinsToStorage('computer');
 }
 
-function showResults(human, computer) {
+function renderResults(human, computer) {
   humanResult.src = `assets/${human.currentChoice}.png`;
   compResult.src = `assets/${computer.currentChoice}.png`;
   setTimeout(startNewRound, 1500);
@@ -141,7 +141,7 @@ function startNewRound() {
   renderChoices();
 }
 
-function changeGame() {
+function returnToMain() {
   changeView(mainView, resultsView);
   hide(choiceView);
   hide(changeGameBtn);
