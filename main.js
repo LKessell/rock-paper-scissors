@@ -26,7 +26,7 @@ mainView.addEventListener('click', function(event) {
   changeView(choiceView, mainView);
   renderChoices();
 })
-changeGameBtn.addEventListener('click', changeGame);
+changeGameBtn.addEventListener('click', returnToMain);
 choiceView.addEventListener('click', function(event) {
   playGame(event);
 });
@@ -96,12 +96,13 @@ function playGame(event) {
   showPlayerSelection(event);
   disable(choiceView);
   disable(changeGameBtn);
-  setTimeout(function() {
-    changeView(resultsView, choiceView);
-    updateWins();
-    show(changeGameBtn);
-    showResults(game.human, game.computer);
-  }, 800);
+  setTimeout(showGameOutcome, 800);
+}
+
+function showGameOutcome() {
+  changeView(resultsView, choiceView);
+  updateWins();
+  renderResults(game.human, game.computer);
 }
 
 function updateText(element, message) {
@@ -125,7 +126,7 @@ function updateWins() {
   game.computer.saveWinsToStorage('computer');
 }
 
-function showResults(human, computer) {
+function renderResults(human, computer) {
   humanResult.src = `assets/${human.currentChoice}.png`;
   compResult.src = `assets/${computer.currentChoice}.png`;
   setTimeout(startNewRound, 1500);
@@ -134,12 +135,13 @@ function showResults(human, computer) {
 function startNewRound() {
   game.resetBoard();
   changeView(choiceView, resultsView);
+  show(changeGameBtn);
   enable(changeGameBtn);
   enable(choiceView);
   renderChoices();
 }
 
-function changeGame() {
+function returnToMain() {
   changeView(mainView, resultsView);
   hide(choiceView);
   hide(changeGameBtn);
