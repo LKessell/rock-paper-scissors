@@ -20,7 +20,7 @@ class Game {
     if (humanWin) {
       this.human.wins++;
       this.winner = 'human';
-      return true;
+      return;
     }
 
     this.checkForDraw();
@@ -32,7 +32,7 @@ class Game {
 
     if (humanChoice === compChoice) {
       this.winner = 'none';
-      return true;
+      return;
     }
 
     this.computer.wins++;
