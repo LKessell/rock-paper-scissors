@@ -96,11 +96,13 @@ function playGame(event) {
   showPlayerSelection(event);
   disable(choiceView);
   disable(changeGameBtn);
-  setTimeout(function() {
-    changeView(resultsView, choiceView);
-    updateWins();
-    showResults(game.human, game.computer);
-  }, 800);
+  setTimeout(showGameOutcome, 800);
+}
+
+function showGameOutcome() {
+  changeView(resultsView, choiceView);
+  updateWins();
+  showResults(game.human, game.computer);
 }
 
 function updateText(element, message) {
