@@ -70,6 +70,7 @@ function playGame(event) {
   var humanChoice = event.target.id;
   game.computer.takeTurn();
   game.human.takeTurn(humanChoice);
+  displayWinnerText();
   showPlayerSelection(event);
   disable(choiceView);
   disable(changeGameBtn);
@@ -83,6 +84,16 @@ function playGame(event) {
 
 function updateText(element, message) {
   element.innerText = message;
+}
+
+function displayWinnerText() {
+  if (game.winner === 'human') {
+    updateText(resultsText, 'You won!');
+  } else if (game.winner === 'none') {
+    updateText(resultsText, 'It\'s a draw!');
+  } else {
+    updateText(resultsText, 'The computer won!');
+  }
 }
 
 function updateWins() {
