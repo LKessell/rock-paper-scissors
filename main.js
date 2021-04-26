@@ -87,7 +87,7 @@ function renderChoices() {
 
 function showPlayerSelection(event) {
   event.target.closest('div').innerHTML += `
-  <img class="player-icon selector" src="assets/happy.png" alt="">
+  <img class="player-icon selector" src="${game.human.icon}" alt="${game.human.iconAlt}">
   `
 }
 
