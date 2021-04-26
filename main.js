@@ -128,12 +128,15 @@ function updateWins() {
 function showResults(human, computer) {
   humanResult.src = `assets/${human.currentChoice}.png`;
   compResult.src = `assets/${computer.currentChoice}.png`;
-  setTimeout(function() {
-    changeView(choiceView, resultsView);
-    enable(changeGameBtn);
-    enable(choiceView);
-    renderChoices();
-  }, 1500);
+  setTimeout(startNewRound, 1500);
+}
+
+function startNewRound() {
+  game.resetBoard();
+  changeView(choiceView, resultsView);
+  enable(changeGameBtn);
+  enable(choiceView);
+  renderChoices();
 }
 
 function changeGame() {
