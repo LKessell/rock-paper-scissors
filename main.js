@@ -129,6 +129,7 @@ function showResults(human, computer) {
   humanResult.src = `assets/${human.currentChoice}.png`;
   compResult.src = `assets/${computer.currentChoice}.png`;
   setTimeout(function() {
+    game.resetBoard();
     changeView(choiceView, resultsView);
     enable(changeGameBtn);
     enable(choiceView);
