@@ -1,5 +1,7 @@
+// Global Variables
 var game = new Game();
 
+// Query Selectors
 var classicBtn = document.getElementById('classicBtn');
 var challengeBtn = document.getElementById('challengeBtn');
 var changeGameBtn = document.getElementById('changeGameBtn');
@@ -17,9 +19,7 @@ var humanName = document.getElementById('humanName');
 var computerIcon = document.getElementById('computerIcon');
 var computerName = document.getElementById('computerName');
 
-// classicBtn.addEventListener('click', function() {
-//   changeView(choiceView, mainView);
-// });
+// Event Listeners
 window.addEventListener('DOMContentLoaded', setUpGame);
 mainView.addEventListener('click', function(event) {
   game.chooseMode(event);
@@ -31,6 +31,7 @@ choiceView.addEventListener('click', function(event) {
   playGame(event);
 });
 
+// Functions
 function show(element) {
   element.classList.remove('hidden');
 }
@@ -91,7 +92,7 @@ function playGame(event) {
   var humanChoice = event.target.id;
   game.computer.takeTurn();
   game.human.takeTurn(humanChoice);
-  displayWinnerText();
+  updateWinnerText();
   showPlayerSelection(event);
   disable(choiceView);
   disable(changeGameBtn);
@@ -107,7 +108,7 @@ function updateText(element, message) {
   element.innerText = message;
 }
 
-function displayWinnerText() {
+function updateWinnerText() {
   if (game.winner === 'human') {
     updateText(resultsText, 'You won!');
   } else if (game.winner === 'none') {
@@ -140,6 +141,3 @@ function changeGame() {
   hide(choiceView);
   hide(changeGameBtn);
 }
-
-// console.log(`You chose: ${game.human.currentChoice}`);
-// console.log(`Computer chose: ${game.computer.currentChoice}`);
