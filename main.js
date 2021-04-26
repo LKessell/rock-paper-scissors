@@ -18,6 +18,8 @@ var humanIcon = document.getElementById('humanIcon');
 var humanName = document.getElementById('humanName');
 var computerIcon = document.getElementById('computerIcon');
 var computerName = document.getElementById('computerName');
+var humanResultIcon = document.getElementById('humanResultIcon');
+var compResultIcon = document.getElementById('compResultIcon');
 
 // Event Listeners
 window.addEventListener('DOMContentLoaded', setUpGame);
@@ -132,6 +134,10 @@ function renderResults(human, computer) {
   humanResult.alt = human.currentChoice;
   compResult.src = `assets/${computer.currentChoice}.png`;
   compResult.alt = computer.currentChoice;
+  humanResultIcon.src = human.icon;
+  humanResultIcon.alt = human.iconAlt;
+  compResultIcon.src = computer.icon;
+  compResultIcon.alt = computer.iconAlt;
   setTimeout(startNewRound, 1500);
 }
 
