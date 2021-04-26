@@ -76,7 +76,7 @@ function renderChoices() {
     var weapon = game.choices[i];
     weaponChoices.innerHTML += `
     <div class="weapon-container">
-      <img class="weapon" src="assets/${weapon}.png" id="${weapon}">
+      <img class="weapon" src="assets/${weapon}.png" alt="${weapon}" id="${weapon}">
     </div>
     `;
   }
@@ -128,7 +128,9 @@ function updateWins() {
 
 function renderResults(human, computer) {
   humanResult.src = `assets/${human.currentChoice}.png`;
+  humanResult.alt = human.currentChoice;
   compResult.src = `assets/${computer.currentChoice}.png`;
+  compResult.alt = computer.currentChoice;
   setTimeout(startNewRound, 1500);
 }
 
