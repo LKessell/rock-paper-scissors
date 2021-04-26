@@ -21,7 +21,7 @@ class Player {
   }
 
   takeTurn(playerInput) {
-    if (!playerInput) {
+    if (this.name === 'Computer') {
       this.currentChoice = this.getRandomChoice();
     } else {
       this.currentChoice = playerInput;

@@ -1,5 +1,7 @@
+// Global Variables
 var game = new Game();
 
+// Query Selectors
 var classicBtn = document.getElementById('classicBtn');
 var challengeBtn = document.getElementById('challengeBtn');
 var changeGameBtn = document.getElementById('changeGameBtn');
@@ -12,11 +14,13 @@ var humanResult = document.getElementById('humanResult');
 var compResult = document.getElementById('compResult');
 var resultsText = document.getElementById('resultsText');
 var weaponChoices = document.getElementById('weaponChoices');
+var humanIcon = document.getElementById('humanIcon');
+var humanName = document.getElementById('humanName');
+var computerIcon = document.getElementById('computerIcon');
+var computerName = document.getElementById('computerName');
 
-// classicBtn.addEventListener('click', function() {
-//   changeView(choiceView, mainView);
-// });
-window.addEventListener('DOMContentLoaded', getStorageData);
+// Event Listeners
+window.addEventListener('DOMContentLoaded', setUpGame);
 mainView.addEventListener('click', function(event) {
   game.chooseMode(event);
   changeView(choiceView, mainView);
@@ -27,6 +31,7 @@ choiceView.addEventListener('click', function(event) {
   playGame(event);
 });
 
+// Functions
 function show(element) {
   element.classList.remove('hidden');
 }
@@ -46,6 +51,23 @@ function enable(element) {
 
 function disable(element) {
   element.classList.add('static');
+}
+
+function setUpGame() {
+  getStorageData();
+  renderSidebar(humanIcon, humanName, game.human.name, game.human.icon);
+  renderSidebar(computerIcon, computerName, game.computer.name, game.computer.icon);
+}
+
+function renderSidebar(iconId, nameId, player, icon) {
+  iconId.src=icon;
+  nameId.innerText = player;
+}
+
+function getStorageData() {
+  game.human.retrieveWinsFromStorage('human');
+  game.computer.retrieveWinsFromStorage('computer');
+  updateWins();
 }
 
 function renderChoices() {
@@ -70,6 +92,7 @@ function playGame(event) {
   var humanChoice = event.target.id;
   game.computer.takeTurn();
   game.human.takeTurn(humanChoice);
+  updateWinnerText();
   showPlayerSelection(event);
   disable(choiceView);
   disable(changeGameBtn);
@@ -83,6 +106,16 @@ function playGame(event) {
 
 function updateText(element, message) {
   element.innerText = message;
+}
+
+function updateWinnerText() {
+  if (game.winner === 'human') {
+    updateText(resultsText, 'You won!');
+  } else if (game.winner === 'none') {
+    updateText(resultsText, 'It\'s a draw!');
+  } else {
+    updateText(resultsText, 'The computer won!');
+  }
 }
 
 function updateWins() {
@@ -108,12 +141,3 @@ function changeGame() {
   hide(choiceView);
   hide(changeGameBtn);
 }
-
-function getStorageData() {
-  game.human.retrieveWinsFromStorage('human');
-  game.computer.retrieveWinsFromStorage('computer');
-  updateWins();
-}
-
-// console.log(`You chose: ${game.human.currentChoice}`);
-// console.log(`Computer chose: ${game.computer.currentChoice}`);
