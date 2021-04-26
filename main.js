@@ -12,11 +12,15 @@ var humanResult = document.getElementById('humanResult');
 var compResult = document.getElementById('compResult');
 var resultsText = document.getElementById('resultsText');
 var weaponChoices = document.getElementById('weaponChoices');
+var humanIcon = document.getElementById('humanIcon');
+var humanName = document.getElementById('humanName');
+var computerIcon = document.getElementById('computerIcon');
+var computerName = document.getElementById('computerName');
 
 // classicBtn.addEventListener('click', function() {
 //   changeView(choiceView, mainView);
 // });
-window.addEventListener('DOMContentLoaded', getStorageData);
+window.addEventListener('DOMContentLoaded', setUpGame);
 mainView.addEventListener('click', function(event) {
   game.chooseMode(event);
   changeView(choiceView, mainView);
@@ -46,6 +50,23 @@ function enable(element) {
 
 function disable(element) {
   element.classList.add('static');
+}
+
+function setUpGame() {
+  getStorageData();
+  renderSidebar(humanIcon, humanName, game.human.name, game.human.icon);
+  renderSidebar(computerIcon, computerName, game.computer.name, game.computer.icon);
+}
+
+function renderSidebar(iconId, nameId, player, icon) {
+  iconId.src=icon;
+  nameId.innerText = player;
+}
+
+function getStorageData() {
+  game.human.retrieveWinsFromStorage('human');
+  game.computer.retrieveWinsFromStorage('computer');
+  updateWins();
 }
 
 function renderChoices() {
@@ -118,12 +139,6 @@ function changeGame() {
   changeView(mainView, resultsView);
   hide(choiceView);
   hide(changeGameBtn);
-}
-
-function getStorageData() {
-  game.human.retrieveWinsFromStorage('human');
-  game.computer.retrieveWinsFromStorage('computer');
-  updateWins();
 }
 
 // console.log(`You chose: ${game.human.currentChoice}`);
