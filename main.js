@@ -41,11 +41,11 @@ function changeView(shown, hidden) {
 }
 
 function enable(element) {
-  element.disabled = false;
+  element.classList.remove('static');
 }
 
 function disable(element) {
-  element.disabled = true;
+  element.classList.add('static');
 }
 
 function renderChoices() {
@@ -71,11 +71,12 @@ function playGame(event) {
   game.computer.takeTurn();
   game.human.takeTurn(humanChoice);
   showPlayerSelection(event);
+  disable(choiceView);
+  disable(changeGameBtn);
   setTimeout(function() {
     changeView(resultsView, choiceView);
     updateWins();
     show(changeGameBtn);
-    disable(changeGameBtn);
     showResults(game.human, game.computer);
   }, 800);
 }
@@ -97,6 +98,7 @@ function showResults(human, computer) {
   setTimeout(function() {
     changeView(choiceView, resultsView);
     enable(changeGameBtn);
+    enable(choiceView);
     renderChoices();
   }, 1500);
 }
