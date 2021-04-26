@@ -50,5 +50,8 @@ class Game {
   }
 
   resetBoard() {
+    this.winner = null;
+    this.human.currentChoice = null;
+    this.computer.currentChoice = null;
   }
 }
