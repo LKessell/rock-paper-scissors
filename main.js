@@ -55,12 +55,13 @@ function disable(element) {
 
 function setUpGame() {
   getStorageData();
-  renderSidebar(humanIcon, humanName, game.human.name, game.human.icon);
-  renderSidebar(computerIcon, computerName, game.computer.name, game.computer.icon);
+  renderSidebar(humanIcon, humanName, game.human.name, game.human.icon, game.human.iconAlt);
+  renderSidebar(computerIcon, computerName, game.computer.name, game.computer.icon, game.computer.iconAlt);
 }
 
-function renderSidebar(iconId, nameId, player, icon) {
+function renderSidebar(iconId, nameId, player, icon, altText) {
   iconId.src=icon;
+  iconId.alt=altText;
   nameId.innerText = player;
 }
 
@@ -84,7 +85,7 @@ function renderChoices() {
 
 function showPlayerSelection(event) {
   event.target.closest('div').innerHTML += `
-  <img class="player-icon selector" src="assets/happy.png">
+  <img class="player-icon selector" src="assets/happy.png" alt="">
   `
 }
 
