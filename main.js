@@ -99,7 +99,6 @@ function playGame(event) {
   setTimeout(function() {
     changeView(resultsView, choiceView);
     updateWins();
-    show(changeGameBtn);
     showResults(game.human, game.computer);
   }, 800);
 }
@@ -134,6 +133,7 @@ function showResults(human, computer) {
 function startNewRound() {
   game.resetBoard();
   changeView(choiceView, resultsView);
+  show(changeGameBtn);
   enable(changeGameBtn);
   enable(choiceView);
   renderChoices();
