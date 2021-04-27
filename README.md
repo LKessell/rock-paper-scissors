@@ -17,6 +17,7 @@ The project spec can be viewed [here](https://frontend.turing.edu/projects/modul
   - <a href="#technologies-used">Technologies Used</a>
   - <a href="#contributors">Contributors</a>
   - <a href="#challenges-and-wins">Challenges and Wins</a>
+  - <a href="#future-additions">Future Additions</a>
   - <a href="#special-thanks">Special Thanks</a>
 
 ## <a id="#how-to-play">How to Play</a>
@@ -43,6 +44,11 @@ Lauren Kessell - 2103 FE Student - [GitHub Profile](https://github.com/LKessell)
   - I felt much more comfortable using localStorage in this project.
   - While keeping the Data Model and DOM manipulation separate was challenging, I feel like my understanding has improved a lot over the course of the project.
   - Utilizing event delegation in this project greatly helped to improve my skills using event targets.
+
+## <a id="#future-additions">Future Additions</a>
+ - Add an option to reset win counts
+ - Add unique icons and styling for challenge mode
+ - Make layout/styling improvements
 
 ## <a id="#special-thanks">Special Thanks</a>
   - [Foster Taylor](https://github.com/foster55f) - Mentor
