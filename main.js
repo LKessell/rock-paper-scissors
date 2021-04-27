@@ -24,12 +24,16 @@ var compResultIcon = document.getElementById('compResultIcon');
 // Event Listeners
 window.addEventListener('DOMContentLoaded', setUpGame);
 mainView.addEventListener('click', function(event) {
+  if (event.target.tagName !== 'BUTTON') {
+    return;
+  }
   game.chooseMode(event);
   changeView(choiceView, mainView);
   renderChoices();
 })
 changeGameBtn.addEventListener('click', returnToMain);
 choiceView.addEventListener('click', function(event) {
+  // if statement?
   playGame(event);
 });
 
