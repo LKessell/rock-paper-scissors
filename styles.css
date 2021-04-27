@@ -1,17 +1,3 @@
-/*
-Colors:
-
-turquoise #68baa7
-dark purple #4e476b
-light purple #6c648b
-tan #b6a19e
-gold #fba100
- */
-
- /* * {
-   border: 1px dashed blue;
- } */
-
 body {
   font-family: 'Roboto', sans-serif;
   text-align: center;
@@ -57,7 +43,6 @@ button:hover:not([disabled]) {
   background-color: #5d567b;
 }
 
-
 .change-game-btn {
   width: auto;
 }
@@ -87,8 +72,8 @@ button:hover:not([disabled]) {
   display: inline-flex;
   align-content: center;
   z-index: 1;
-  height: 170px;
-  width: 170px;
+  height: 160px;
+  width: 160px;
   margin: 0.6em;
 }
 

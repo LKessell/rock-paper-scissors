@@ -23,15 +23,9 @@ var compResultIcon = document.getElementById('compResultIcon');
 
 // Event Listeners
 window.addEventListener('DOMContentLoaded', setUpGame);
-mainView.addEventListener('click', function(event) {
-  game.chooseMode(event);
-  changeView(choiceView, mainView);
-  renderChoices();
-})
+mainView.addEventListener('click', handleModeChoice);
 changeGameBtn.addEventListener('click', returnToMain);
-choiceView.addEventListener('click', function(event) {
-  playGame(event);
-});
+choiceView.addEventListener('click', handleWeaponChoice);
 
 // Functions
 function show(element) {
@@ -73,8 +67,27 @@ function getStorageData() {
   updateWins();
 }
 
+function handleModeChoice(event) {
+  if (event.target.tagName !== 'BUTTON') {
+    return;
+  }
+
+  game.chooseMode(event);
+  changeView(choiceView, mainView);
+  renderChoices();
+}
+
+function handleWeaponChoice(event) {
+  if (event.target.tagName !== 'IMG') {
+    return;
+  }
+
+  playGame(event);
+}
+
 function renderChoices() {
   weaponChoices.innerHTML = ''
+
   for (var i = 0; i < game.choices.length; i++) {
     var weapon = game.choices[i];
     weaponChoices.innerHTML += `
@@ -93,8 +106,10 @@ function showPlayerSelection(event) {
 
 function playGame(event) {
   var humanChoice = event.target.id;
+
   game.computer.takeTurn();
   game.human.takeTurn(humanChoice);
+
   updateWinnerText();
   showPlayerSelection(event);
   disable(choiceView);
