@@ -1,5 +1,7 @@
 # Rock, Paper, Scissors!
 
+--- Add gif
+
 ## Project Overview
 
   The goal of Rock, Paper, Scissors was to demonstrate knowledge and skills built during Mod 1 at Turing. Using HTML, CSS, and JavaScript, I built a browser-based Rock, Paper, Scissors style game with Classic and Challenge gameplay modes. Some of the technical focuses for this project included:
@@ -16,6 +18,12 @@
   - <a href="#special-thanks">Special Thanks</a>
 
 ## <a id="#how-to-play">How to Play</a>
+
+--- Add gif
+
+On the main screen, choose which game mode you would like to play by selecting the appropriate button. Each button outlines the rules and weapon options for each game mode.  
+After choosing a game mode, you will be taken to the game board. Choose a weapon, and the computer will make a random choice. The results of the round will be shown, and the game will track the number of wins for both the player and the computer.  
+If you would like to switch to a different game mode, click the "Change Game" button.
 
 ## <a id="#technologies-used">Technologies Used</a>
   - HTML
@@ -35,3 +43,7 @@ Lauren Kessell - 2103 FE Student - [GitHub Profile](https://github.com/LKessell)
   - Utilizing event delegation in this project greatly helped to improve my skills using event targets.
 
 ## <a id="#special-thanks">Special Thanks</a>
+  - [Foster Taylor](https://github.com/foster55f) - Mentor
+  - [Will Mitchell](https://github.com/wvmitchell) - Project Manager/Instructor
+  - [Kayla Wood](https://github.com/kaylaewood) - Instructor
+  - [Heather Faerber](https://github.com/hfaerber) - Instructor
