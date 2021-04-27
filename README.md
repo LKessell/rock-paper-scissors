@@ -16,7 +16,7 @@ The project spec can be viewed [here](https://frontend.turing.edu/projects/modul
   - <a href="#how-to-play">How to Play</a>
   - <a href="#technologies-used">Technologies Used</a>
   - <a href="#contributors">Contributors</a>
-  - <a href="#challenges-wins">Challenges and Wins</a>
+  - <a href="#challenges-and-wins">Challenges and Wins</a>
   - <a href="#special-thanks">Special Thanks</a>
 
 ## <a id="#how-to-play">How to Play</a>
@@ -35,7 +35,7 @@ If you would like to switch to a different game mode, click the "Change Game" bu
 ## <a id="#contributors">Contributors</a>
 Lauren Kessell - 2103 FE Student - [GitHub Profile](https://github.com/LKessell)
 
-## <a id="#challenges-wins">Challenges and Wins</a>
+## <a id="#challenges-and-wins">Challenges and Wins</a>
 ### Challenges
   - Maintaining a clear separation between the Data Model and DOM manipulation was tricky for this project! There have been several instances where I needed to refactor to improve this separation, and I'm sure that I can still continue to improve in this area.
   - I ran into an event delegation issue where clicking on the text inside of a button would not fire the correct event listener. This took some careful investigation into how my event listeners were working. 
