@@ -10,6 +10,8 @@
   - Utilizing event delegation for similar event listeners
   - Maintaining a clear separation between the DOM and Data Model
 
+The project spec can be viewed [here](https://frontend.turing.edu/projects/module-1/rock-paper-scissors-solo.html)!
+
 ## Table of Contents
   - <a href="#how-to-play">How to Play</a>
   - <a href="#technologies-used">Technologies Used</a>
