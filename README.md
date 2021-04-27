@@ -1,6 +1,6 @@
 # Rock, Paper, Scissors!
 
---- Add gif
+![RPSoverview](https://user-images.githubusercontent.com/77205456/116300559-06a9d780-a76d-11eb-92b9-f8e7444acde6.gif)
 
 ## Project Overview
 
@@ -19,7 +19,7 @@
 
 ## <a id="#how-to-play">How to Play</a>
 
---- Add gif
+<img src="https://user-images.githubusercontent.com/77205456/116300608-14f7f380-a76d-11eb-9d3a-1f3ed22343fb.gif" alt="Classic Mode" width="300">  <img src="https://user-images.githubusercontent.com/77205456/116300662-250fd300-a76d-11eb-825f-e96aeaa0641f.gif" alt="Challenge Mode" width="300">
 
 On the main screen, choose which game mode you would like to play by selecting the appropriate button. Each button outlines the rules and weapon options for each game mode.  
 After choosing a game mode, you will be taken to the game board. Choose a weapon, and the computer will make a random choice. The results of the round will be shown, and the game will track the number of wins for both the player and the computer.  
