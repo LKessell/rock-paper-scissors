@@ -33,7 +33,9 @@ mainView.addEventListener('click', function(event) {
 })
 changeGameBtn.addEventListener('click', returnToMain);
 choiceView.addEventListener('click', function(event) {
-  // if statement?
+  if (event.target.tagName !== 'IMG') {
+    return;
+  }
   playGame(event);
 });
 
