@@ -89,20 +89,19 @@ function handleWeaponChoice(event) {
 function renderChoices() {
   weaponChoices.innerHTML = ''
 
-  for (var i = 0; i < game.choices.length; i++) {
-    var weapon = game.choices[i];
+  game.choices.forEach(weapon => {
     weaponChoices.innerHTML += `
-    <div class="weapon-container">
-      <img class="weapon" src="assets/${weapon}.png" alt="${weapon}" id="${weapon}">
-    </div>
+      <div class="weapon-container">
+        <img class="weapon" src="assets/${weapon}.png" alt="${weapon}" id="${weapon}">
+      </div>
     `;
-  }
+  })
 }
 
 function showPlayerSelection(event) {
   event.target.closest('div').innerHTML += `
-  <img class="player-icon selector" src="${game.human.icon}" alt="${game.human.iconAlt}">
-  `
+    <img class="player-icon selector" src="${game.human.icon}" alt="${game.human.iconAlt}">
+  `;
 }
 
 function playGame(event) {
