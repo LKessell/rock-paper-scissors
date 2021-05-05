@@ -2,8 +2,6 @@
 var game = new Game();
 
 // Query Selectors
-var classicBtn = document.getElementById('classicBtn');
-var challengeBtn = document.getElementById('challengeBtn');
 var changeGameBtn = document.getElementById('changeGameBtn');
 var mainView = document.getElementById('mainView');
 var choiceView = document.getElementById('choiceView');
@@ -50,14 +48,17 @@ function disable(element) {
 }
 
 function setUpGame() {
+  var human = game.human;
+  var computer = game.computer;
+
   getStorageData();
-  renderSidebar(humanIcon, humanName, game.human.name, game.human.icon, game.human.iconAlt);
-  renderSidebar(computerIcon, computerName, game.computer.name, game.computer.icon, game.computer.iconAlt);
+  renderSidebar(humanIcon, humanName, human.name, human.icon, human.iconAlt);
+  renderSidebar(computerIcon, computerName, computer.name, computer.icon, computer.iconAlt);
 }
 
 function renderSidebar(iconId, nameId, player, icon, altText) {
-  iconId.src=icon;
-  iconId.alt=altText;
+  iconId.src = icon;
+  iconId.alt = altText;
   nameId.innerText = player;
 }
 
