@@ -129,12 +129,18 @@ function updateText(element, message) {
 }
 
 function updateWinnerText() {
-  if (game.winner === 'human') {
-    updateText(resultsText, 'You won!');
-  } else if (game.winner === 'none') {
-    updateText(resultsText, 'It\'s a draw!');
-  } else {
-    updateText(resultsText, 'The computer won!');
+  switch (game.winner) {
+    case 'human':
+      updateText(resultsText, 'You won!');
+      break;
+
+    case 'none':
+      updateText(resultsText, 'It\'s a draw!');
+      break;
+
+    case 'computer':
+      updateText(resultsText, 'The computer won!');
+      break;
   }
 }
 
