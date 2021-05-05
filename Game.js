@@ -5,38 +5,31 @@ class Game {
     this.type = null;
     this.choices = null;
     this.winner = null;
+    this.winConditions = {
+      rock: ['scissors', 'lizard'],
+      paper: ['rock', 'alien'],
+      scissors: ['paper', 'lizard'],
+      lizard: ['alien', 'paper'],
+      alien: ['rock', 'scissors']
+    }
   }
 
   checkForWin() {
     var humanChoice = this.human.currentChoice;
     var compChoice = this.computer.currentChoice;
-    var humanWin =
-      humanChoice === 'rock' && (compChoice === 'scissors' || compChoice === 'lizard') ||
-      humanChoice === 'paper' && (compChoice === 'rock' || compChoice === 'alien') ||
-      humanChoice === 'scissors' && (compChoice === 'paper' || compChoice === 'lizard') ||
-      humanChoice === 'lizard' && (compChoice === 'alien' || compChoice === 'paper') ||
-      humanChoice === 'alien' && (compChoice === 'rock' || compChoice === 'scissors');
 
-    if (humanWin) {
+    if (this.winConditions[humanChoice].includes(compChoice)) {
       this.human.wins++;
       this.winner = 'human';
       return;
-    }
-
-    this.checkForDraw();
-  }
-
-  checkForDraw() {
-    var humanChoice = this.human.currentChoice;
-    var compChoice = this.computer.currentChoice;
-
-    if (humanChoice === compChoice) {
+    } else if (humanChoice === compChoice) {
       this.winner = 'none';
       return;
+    } else {
+      this.computer.wins++;
+      this.winner = 'computer';
     }
 
-    this.computer.wins++;
-    this.winner = 'computer';
   }
 
   chooseMode(event) {
