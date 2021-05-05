@@ -26,26 +26,20 @@ changeGameBtn.addEventListener('click', returnToMain);
 choiceView.addEventListener('click', handleWeaponChoice);
 
 // Functions
-function show(element) {
-  element.classList.remove('hidden');
-}
+const show = element => element.classList.remove('hidden');
 
-function hide(element) {
-  element.classList.add('hidden');
-}
+const hide = element => element.classList.add('hidden');
 
-function changeView(shown, hidden) {
+const changeView = (shown, hidden) => {
   show(shown);
   hide(hidden);
 }
 
-function enable(element) {
-  element.classList.remove('static');
-}
+const enable = element => element.classList.remove('static');
 
-function disable(element) {
-  element.classList.add('static');
-}
+const disable = element => element.classList.add('static');
+
+const updateText = (element, message) => element.innerText = message;
 
 function setUpGame() {
   var human = game.human;
@@ -121,10 +115,6 @@ function showGameOutcome() {
   changeView(resultsView, choiceView);
   updateWins();
   renderResults(game.human, game.computer);
-}
-
-function updateText(element, message) {
-  element.innerText = message;
 }
 
 function updateWinnerText() {
