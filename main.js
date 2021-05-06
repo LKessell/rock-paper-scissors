@@ -26,26 +26,20 @@ changeGameBtn.addEventListener('click', returnToMain);
 choiceView.addEventListener('click', handleWeaponChoice);
 
 // Functions
-function show(element) {
-  element.classList.remove('hidden');
-}
+const show = element => element.classList.remove('hidden');
 
-function hide(element) {
-  element.classList.add('hidden');
-}
+const hide = element => element.classList.add('hidden');
 
-function changeView(shown, hidden) {
+const changeView = (shown, hidden) => {
   show(shown);
   hide(hidden);
 }
 
-function enable(element) {
-  element.classList.remove('static');
-}
+const enable = element => element.classList.remove('static');
 
-function disable(element) {
-  element.classList.add('static');
-}
+const disable = element => element.classList.add('static');
+
+const updateText = (element, message) => element.innerText = message;
 
 function setUpGame() {
   var human = game.human;
@@ -89,20 +83,19 @@ function handleWeaponChoice(event) {
 function renderChoices() {
   weaponChoices.innerHTML = ''
 
-  for (var i = 0; i < game.choices.length; i++) {
-    var weapon = game.choices[i];
+  game.choices.forEach(weapon => {
     weaponChoices.innerHTML += `
-    <div class="weapon-container">
-      <img class="weapon" src="assets/${weapon}.png" alt="${weapon}" id="${weapon}">
-    </div>
+      <div class="weapon-container">
+        <img class="weapon" src="assets/${weapon}.png" alt="${weapon}" id="${weapon}">
+      </div>
     `;
-  }
+  })
 }
 
 function showPlayerSelection(event) {
   event.target.closest('div').innerHTML += `
-  <img class="player-icon selector" src="${game.human.icon}" alt="${game.human.iconAlt}">
-  `
+    <img class="player-icon selector" src="${game.human.icon}" alt="${game.human.iconAlt}">
+  `;
 }
 
 function playGame(event) {
@@ -121,20 +114,24 @@ function playGame(event) {
 function showGameOutcome() {
   changeView(resultsView, choiceView);
   updateWins();
-  renderResults(game.human, game.computer);
-}
-
-function updateText(element, message) {
-  element.innerText = message;
+  renderResult(humanResult, game.human, humanResultIcon);
+  renderResult(compResult, game.computer, compResultIcon);
+  setTimeout(startNewRound, 1500);
 }
 
 function updateWinnerText() {
-  if (game.winner === 'human') {
-    updateText(resultsText, 'You won!');
-  } else if (game.winner === 'none') {
-    updateText(resultsText, 'It\'s a draw!');
-  } else {
-    updateText(resultsText, 'The computer won!');
+  switch (game.winner) {
+    case 'human':
+      updateText(resultsText, 'You won!');
+      break;
+
+    case 'none':
+      updateText(resultsText, 'It\'s a draw!');
+      break;
+
+    case 'computer':
+      updateText(resultsText, 'The computer won!');
+      break;
   }
 }
 
@@ -145,16 +142,11 @@ function updateWins() {
   game.computer.saveWinsToStorage('computer');
 }
 
-function renderResults(human, computer) {
-  humanResult.src = `assets/${human.currentChoice}.png`;
-  humanResult.alt = human.currentChoice;
-  compResult.src = `assets/${computer.currentChoice}.png`;
-  compResult.alt = computer.currentChoice;
-  humanResultIcon.src = human.icon;
-  humanResultIcon.alt = human.iconAlt;
-  compResultIcon.src = computer.icon;
-  compResultIcon.alt = computer.iconAlt;
-  setTimeout(startNewRound, 1500);
+function renderResult(image, player, playerIcon) {
+  image.src = `assets/${player.currentChoice}.png`;
+  image.alt = player.currentChoice;
+  playerIcon.src = player.icon;
+  playerIcon.alt = player.iconAlt;
 }
 
 function startNewRound() {
