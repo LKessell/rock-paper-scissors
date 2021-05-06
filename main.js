@@ -114,7 +114,9 @@ function playGame(event) {
 function showGameOutcome() {
   changeView(resultsView, choiceView);
   updateWins();
-  renderResults(game.human, game.computer);
+  renderResult(humanResult, game.human, humanResultIcon);
+  renderResult(compResult, game.computer, compResultIcon);
+  setTimeout(startNewRound, 1500);
 }
 
 function updateWinnerText() {
@@ -140,16 +142,11 @@ function updateWins() {
   game.computer.saveWinsToStorage('computer');
 }
 
-function renderResults(human, computer) {
-  humanResult.src = `assets/${human.currentChoice}.png`;
-  humanResult.alt = human.currentChoice;
-  compResult.src = `assets/${computer.currentChoice}.png`;
-  compResult.alt = computer.currentChoice;
-  humanResultIcon.src = human.icon;
-  humanResultIcon.alt = human.iconAlt;
-  compResultIcon.src = computer.icon;
-  compResultIcon.alt = computer.iconAlt;
-  setTimeout(startNewRound, 1500);
+function renderResult(image, player, playerIcon) {
+  image.src = `assets/${player.currentChoice}.png`;
+  image.alt = player.currentChoice;
+  playerIcon.src = player.icon;
+  playerIcon.alt = player.iconAlt;
 }
 
 function startNewRound() {
